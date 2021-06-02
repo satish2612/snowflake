@@ -1,0 +1,13 @@
+create or replace procedure count()
+Returns varchar not null
+Language javascript
+as
+$$
+var stmt="select count(*) from emp";
+var cmd=snowflake.createStatement
+(
+  {sqlText:stmt}
+);
+var rs=cmd.execute();
+$$
+;
